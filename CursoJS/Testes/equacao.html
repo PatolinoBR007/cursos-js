@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font: normal 18pt arial;
+            background-color: rgb(43, 43, 43);
+            color: white
+        }
+        input{
+            font: normal 20pt arial;
+            width: 75px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Equação do segundo grau</h1>
+    <input type="number" name="a1" id="a1"> X²
+    <input type="number" name="a2" id="a2"> X
+    <input type="number" name="a3" id="a3">
+    <input type="button" value="Enter" onclick="ent()">
+    <div id='res'>Resultado</div>
+    <script>
+    function ent(){    
+        var a1 = document.querySelector('input#a1')
+        var b2 = document.querySelector('input#a2')
+        var c3 = document.querySelector('input#a3')
+        var res = document.querySelector('div#res')
+        var a = Number(a1.value)
+        var b = Number(b2.value)
+        var c = Number(c3.value)
+        var del = b**2 -4*a*c
+        var rdel = Math.sqrt(del)
+        var x1 = (-b + rdel )/ (a*2)
+        var x2 = (-b - rdel )/ (a*2)
+        res.innerHTML = `o valor de X1 é = <strong>${x1}</strong> e X2 é = <strong>${x2}</strong>`
+        alert(a1)
+    }
+    
+    </script>
+</body>
+</html>

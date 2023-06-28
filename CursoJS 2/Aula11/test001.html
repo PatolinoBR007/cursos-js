@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Nacionalidade</title>
+</head>
+<style>
+    h1 {
+        text-align: center;
+    }
+</style>
+<body>
+    <h1>Teste de Nacionalidade</h1>
+    <!--<input type="text" placeholder="País de origem" list="paises">
+        <datalist id="paises">
+         <option value="">faixa etária:</option>
+         <option value="Inglaterra">Inglaterra</option>
+         <option value="EUA">EUA</option>
+         <option value="brasil">brasil</option>
+    </datalist>-->
+    <input type="text" id="pais">
+    <input type="button" value="ENTER" onclick="Click()">
+    <div id="nas">
+
+    </div>
+    <script>
+        function Click() {
+            var p = document.getElementById('pais')
+            var nas = document.querySelector(`div#nas`)
+            if (p == 'brasil') {
+                nas.innerHTML = 'Brasileiro'    
+            } else {
+                nas.innerHTML = 'Gringo'
+            }
+        }
+    </script>
+</body>
+</html>

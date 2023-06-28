@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vamos contar</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <header>
+        <h1>Vamos contar</h1>
+    </header>
+    <section>
+            <div>
+                <p>Inicio: <input type="number" name="txt1" id="txt1"></p>
+                <p>Final: <input type="number" name="txt2" id="txt2"></p>
+                <p>Passo: <input type="number" name="txt3" id="txt3" min="1"></p>
+                <input type="button" value="Caucular" onclick="caucular()">
+            </div>
+            <div id="res"></div>
+    </section>
+    <footer>
+        <p>&copy; PatolinoBR</p>
+    </footer>
+    <script src="scrypt.js"></script>
+</body>
+</html>

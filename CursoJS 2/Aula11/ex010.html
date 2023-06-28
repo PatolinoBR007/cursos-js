@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detran</title>
+    <style>
+      
+    </style>
+</head>
+<body>
+    <h1>Sistema de Multa</h1>
+    velocidade do carro: <input type="number" name="txtvel" id="txtvel">Km/h
+    <input type="button" value="ENTER" onclick="Click()" >
+    <div id="Res">
+
+    </div>
+    <script>
+        function Click() {
+            var txtv = document.getElementById('txtvel')
+            var Res = document.querySelector('div#Res')
+            var vel = Number(txtv.value)
+            Res.innerHTML = `<p>Sua velocidade atual é <strong>${vel}Km/h</strong></p>`
+            if (vel > 80) {
+                Res.innerHTML += `<p>Sua velocidade execede o limite maximo de 80Km/h BANIDO!!!</p>`
+            }
+            Res.innerHTML += `<p> Se beber DIRIJA </p>`
+        }
+    </script>
+</body>
+</html>
