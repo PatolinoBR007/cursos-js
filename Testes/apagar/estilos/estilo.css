@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+body {
+    background-color: rgb(120, 70, 0);
+}
+main {
+    position: relative;
+    background-color: darkcyan;
+    margin: 2.5%;
+    width: 95vw;
+    height: 95vh;
+}
+
+div.carta {
+    background-color: white;
+    width: 220px;
+    height: 350px;
+    margin: 10px;
+    border: 7px solid white;
+    border-radius: 10px;
+}
+div#thestar{
+    position: absolute;
+    background: url(../star.jpg) no-repeat center center;
+    background-size: cover;
+    float: left;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 1s;
+}
+div#theworld{
+    display: block;
+    position: absolute;
+    background: url(../o-mundo.jpg) no-repeat center center;
+    background-size: cover;
+    float: right;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 1s;
+}
+input#bt {
+    position: absolute;
+    background-color: red;
+    color: white;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    margin: 30px;
+    border: 10px solid darkred;
+    border-radius: 50%;
+    top: 80%;
+    left: 80%;
+}
