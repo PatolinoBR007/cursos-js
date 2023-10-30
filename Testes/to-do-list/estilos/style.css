@@ -1,0 +1,91 @@
+@charset "UTF-8";
+@font-face {
+    font-family: 'Permanent Marker';
+    src: url(../assets/fonts/Permanent_Marker/PermanentMarker-Regular.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+body , html{
+    width: 98vw;
+    height: 100vh;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f0ffd2;
+}
+header {
+    background-color: #e1ffa5;
+    width: 100%;
+}
+header > h1 {
+    font-family: 'Permanent Marker', times, serif;
+    color: #f8ffe9;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    font-size: 3em;
+}
+main {
+    width: 90%;
+    min-height: 1000px;
+    margin: auto;
+}
+section {
+    background-color: white;
+    max-width: 500px;
+    min-height: 700px;
+    padding: 20px;
+    margin: auto;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.37);
+}
+section > menu {
+    position: relative;
+    background-color: #f0ffd2;
+    width: 500px;
+    height: 50px;
+    border-radius: 7px;
+}
+menu > ul {
+    position: absolute;
+    columns: 2;
+    list-style-type: none;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+menu input[type=text] {
+    width: 90%;
+    height: 30px;
+}
+menu input[type=button] {
+    width: 10%;
+    height: 30px;
+}
+.task {
+    width: 90%;
+    height: 30px;
+    border: 1px solid black;
+    margin: auto;
+    margin-top: 20px;
+}
+footer {
+    position: fixed;
+    background-color: #e9ffbc;
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+    bottom: 0;
+    left: 0;
+}
+footer > p {
+    font-size: 1em;
+    font-family: 'Permanent Marker';
+}
+footer > p > a {
+    text-decoration: none;
+    color: black;
+}
