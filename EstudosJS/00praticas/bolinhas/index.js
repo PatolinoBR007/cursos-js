@@ -11,15 +11,69 @@ let bolas = []
 let numBola = 0
 
 class Bola{
-    constructor() {
+    constructor(arrayBolas, palco) {
         this.tam = Math.floor(Math.random()*10)+ 10
         this.r = Math.floor(Math.random()*255)
         this.g = Math.floor(Math.random()*255)
         this.b = Math.floor(Math.random()*255)
         this.posX = Math.floor(Math.random()*larguraPalco-this.tam)
-        this.posy = Math.floor(Math.random()*alturaPalco-this.tam)
+        this.posY = Math.floor(Math.random()*alturaPalco-this.tam)
+        this.velX = Math.floor(Math.random()*2)+0.5
+        this.velY = Math.floor(Math.random()*2)+0.5
+        this.dirX = (Math.random()*10) > 5 ? 1 : -1
+        this.dirY = (Math.random()*10) > 5 ? 1 : -1
+        this.palco = palco
+        this.arrayBolas = arrayBolas
+        this.id = Date.now()+"_"+Math.floor(Math.random()*100000000000)
+        this.desenhar()
+        this.controle = setInterval(this.controlar, 10);
+        this.eu = document.getElementById(this.id)
+        numBola++
+        num_objetos.innerHTML = numBola
     }
-
+    minhaPos = ()=> {
+        return this.arrayBolas.indexOf(this)
+    }
+    remover = ()=> {
+        clearInterval(this.controle)
+        bolas = bolas.filter((b)=> {
+            if (b.id != this.id) {
+                return b
+            }
+        })
+        this.eu.remove()
+        numBola--
+        num_objetos.innerHTML = numBola
+    }
+    desenhar = ()=> {
+        const div = document.createElement("div")
+        div.setAttribute("id", this.id)
+        div.setAttribute("class", "bola")
+        div.setAttribute("style", `left: ${this.posX}px; top: ${this.posY}px; width: ${this.tam}px; height: ${this.tam}px; background-color: rgb(${this.r},${this.g},${this.b})`)
+        this.palco.appendChild(div)
+    }
+    colisao_bordas = ()=> {
+        if (this.posX + this.tam >= larguraPalco) {
+            this.dirX = -1
+        } else if (this.posX <= 0) {
+            this.dirX = 1
+        }
+        if (this.posY + this.tam >= alturaPalco) {
+            this.dirY = -1
+        } else if (this.posY <= 0) {
+            this.dirY = 1
+        }
+    }
+    controlar = ()=> {
+        this.colisao_bordas()
+        this.posX += this.dirX * this.velX
+        this.posY += this.dirY * this.velY
+        // console.log(`X: ${this.posX}, Y: ${this.posY}`)
+        this.eu.setAttribute("style", `left: ${this.posX}px; top: ${this.posY}px; width: ${this.tam}px; height: ${this.tam}px; background-color: rgb(${this.r},${this.g},${this.b})`)
+        if (this.posX > larguraPalco || this.posY > alturaPalco) {
+            this.remover()
+        }
+    }
 }
 
 window.addEventListener("resize", (evt)=> {
@@ -29,11 +83,13 @@ window.addEventListener("resize", (evt)=> {
 btn_add.addEventListener("click", (evt)=> {
     const qtde = txt_qtde.value
     for (let i = 0; i < qtde; i++) {
-        //instanciar novas bolas
+        bolas.push(new Bola(bolas, palco))
     }
 })
 btn_remover.addEventListener("click", (evt)=> {
+    //remover bolas
     bolas.map((b)=> {
-        //remover bolas
+        b.remover()
     })
 })
+
