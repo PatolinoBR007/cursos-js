@@ -1,0 +1,65 @@
+@charset "UTF-8";
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+body {
+    background: #63bda4 url(assets/xCBxuDetcbhAzMhW.jpg_large) no-repeat fixed center center;
+    background-size: cover;
+
+}
+#bmo {
+    position: absolute;
+    background-color: #63bda4;
+    width: 400px;
+    height: 600px;
+    border: 2px solid #072223;
+    border-radius: 20px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+#screen {
+    background: #d9ffea url(assets/happybmo.gif) no-repeat center center;
+    background-size: cover;
+    width: 80%;
+    height: 35%;
+    margin:  40px auto;
+    border: 2px solid #072223;
+    border-radius: 10px;
+    text-align: center;
+}
+#controles {
+    width: 80%;
+    height: 45%;
+    margin: auto;
+}
+.botao {
+    background-color: white;
+    background: transparent no-repeat center center;
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+}
+#red_button {
+    background-color: #fb0055;
+    border: 2px solid #58031b;
+    border-radius: 100%;
+    width: 75px;
+    height: 75px;
+}
+#green_button {
+    background-color: #3ee55a;
+    border: 2px solid #0c2810;
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+}
+#blue_button {
+    background-image: url(assets/blue.png);
+}
+#direcionais {
+    background-image: url(assets/yellow.png);
+}

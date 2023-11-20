@@ -68,7 +68,7 @@ class Bola{
         this.colisao_bordas()
         this.posX += this.dirX * this.velX
         this.posY += this.dirY * this.velY
-        // console.log(`X: ${this.posX}, Y: ${this.posY}`)
+        // nsole.log(`X: ${this.posX}, Y: ${this.posY}`)
         this.eu.setAttribute("style", `left: ${this.posX}px; top: ${this.posY}px; width: ${this.tam}px; height: ${this.tam}px; background-color: rgb(${this.r},${this.g},${this.b})`)
         if (this.posX > larguraPalco || this.posY > alturaPalco) {
             this.remover()
