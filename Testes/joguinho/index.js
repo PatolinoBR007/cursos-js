@@ -3,6 +3,7 @@ const red_button = document.getElementById("red_button")
 const green_button = document.getElementById("green_button")
 const direcionais = document.getElementById("direcionais")
 const start = document.getElementById("start")
+const select = document.getElementById("select")
 
 let screen = document.getElementById("screen")
 let runningGame = false
@@ -14,17 +15,17 @@ blue_button.addEventListener("click", ()=> {
     }, 200);
 }) 
 
-direcionais.addEventListener("click", ()=> {
-    direcionais.setAttribute("style", "background-image: url(assets/yellow_pressed.png);")
+green_button.addEventListener("click", ()=> {
+    green_button.setAttribute("style", "background-image: url(assets/green_pressed.png);")
     setTimeout(() => {
-        direcionais.setAttribute("style", "background-image: url(assets/yellow.png);")
+        green_button.setAttribute("style", "background-image: url(assets/green.png);")
     }, 200);
 }) 
 
-direcionais.addEventListener("click", ()=> {
-    direcionais.setAttribute("style", "background-image: url(assets/yellow_pressed.png);")
+red_button.addEventListener("click", ()=> {
+    red_button.setAttribute("style", "background-image: url(assets/red_pressed.png);")
     setTimeout(() => {
-        direcionais.setAttribute("style", "background-image: url(assets/yellow.png);")
+        red_button.setAttribute("style", "background-image: url(assets/red.png);")
     }, 200);
 }) 
 
@@ -37,21 +38,32 @@ direcionais.addEventListener("click", ()=> {
 
 start.addEventListener("click", ()=> {
     screen.setAttribute("style", "background-image: none;  background-color: #d9ffea;")
-    if (runningGame === false) {
-        startGame()
-        runningGame = true
-    } else if (runningGame === true) {
-        endGame()
-        runningGame = false
-    }
+    start.setAttribute("style", "background-image: url(assets/start_select_pressed.png);")
+    setTimeout(() => {
+        start.setAttribute("style", "background-image: url(assets/start_select.png);")
+    }, 200);
 })
 
+select.addEventListener("click", ()=> {
+    select.setAttribute("style", "background-image: url(assets/start_select_pressed.png);")
+    setTimeout(() => {
+        select.setAttribute("style", "background-image: url(assets/start_select.png);")
+    }, 200);
+})
+
+if (runningGame === false) {
+    startGame()
+    runningGame = true
+} else if (runningGame === true) {
+    endGame()
+    runningGame = false
+}
+
 function startGame() {
-    alert("Game Start")
+    //aaaaa
 }
 
 function endGame() {
-    alert("Game Over")
     screen.setAttribute("style", "background-image: url(assets/happybmo.gif);")
 }
 

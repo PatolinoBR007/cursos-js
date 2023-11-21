@@ -36,6 +36,24 @@ body {
     height: 45%;
     margin: auto;
 }
+#disc_player {
+    display: inline-block;
+    background-color: #072223;
+    border: 2px solid #0c2d22;
+    border-radius: 2px;
+    width: 60%;
+    height: 10%;
+    margin-bottom: 20px;
+}
+#p2 {
+    display: inline-block;
+    background-color: #1b16b8;
+    border: 2px solid #001942;
+    border-radius: 50%;
+    width: 10%;
+    height: 10%;
+
+}
 .botao {
     background-color: white;
     background: transparent no-repeat center center;
@@ -43,19 +61,23 @@ body {
     width: 50px;
     height: 50px;
 }
+#start {
+    background-image: url(assets/start_select.png);
+    width: 60px;
+    height: 20px;
+}
+#select {
+    background-image: url(assets/start_select.png);
+    width: 60px;
+    height: 20px;
+}
 #red_button {
-    background-color: #fb0055;
-    border: 2px solid #58031b;
-    border-radius: 100%;
+    background-image: url(assets/red.png);
     width: 75px;
     height: 75px;
 }
 #green_button {
-    background-color: #3ee55a;
-    border: 2px solid #0c2810;
-    border-radius: 100%;
-    width: 40px;
-    height: 40px;
+    background-image: url(assets/green.png);
 }
 #blue_button {
     background-image: url(assets/blue.png);
