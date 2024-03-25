@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            border: none;
+            box-sizing: border-box;
+        }
+        main {
+            background-color: rgb(195, 195, 255);
+            width: 500px;
+            height: 500px;
+            margin: auto;
+            border: 3px solid gray;
+            border-radius: 10px;
+            padding: 10px;
+            margin-top: 50px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 3em;
+            margin-bottom: 50px;
+        }
+        #math {
+            margin: auto;
+            
+        }
+        input[type=number] {
+            width: 100px;
+            height: 50px;
+            margin: 10px 13px;
+            text-align: center;
+            font-size: 2em;
+            border-radius: 3px;
+            box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.397);
+        }
+        button {
+            width: 50px;
+            height: 50px;
+            margin: 10px 0px;
+            border-radius: 7px;
+            font-size: 2em;
+            background-color: rgb(255, 255, 255);
+        }
+        button:hover {
+            background-color: gray;
+        }
+        #res {
+            background-color: aliceblue;
+            padding: 10px;
+            height: 200px;
+            margin-top: 90px;
+            border-radius: 0px 0px 10px 10px;
+            font-size: 2em;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Cauculadora</h1>
+        <div id="math">
+            <input type="number" name="val" id="val1">
+            <button id="btnAdd" class="btn">+</button>
+            <button id="btnSub" class="btn">-</button>
+            <button id="btnMult" class="btn">x</button>
+            <button id="btnDiv" class="btn">%</button>
+            <input type="number" name="val" id="val2">
+            <div id="res">Digite dois valores acima</div>
+        </div>
+    </main>
+
+    <script>
+        const res = document.querySelector("#res")
+        const btnAdd = document.querySelector("#btnAdd")
+        const btnSub = document.querySelector("#btnSub")
+        const btnMult = document.querySelector("#btnMult")
+        const btnDiv = document.querySelector("#btnDiv")
+        const btn = document.querySelectorAll(".btn")
+
+        let op = [
+            (n1, n2)=> {
+                res.innerHTML = `A soma de ${n1} e ${n2} é igual a ${n1+n2}`
+            },
+            (n1, n2)=> {
+                res.innerHTML = `A diferença de ${n1} e ${n2} é igual a ${n1-n2}`
+            },
+            (n1, n2)=> {
+                res.innerHTML = `O produto de ${n1} e ${n2} é igual a ${n1*n2}`
+            },
+            (n1, n2)=> {
+                res.innerHTML = `A divisão de ${n1} com ${n2} é igual a ${n1/n2}`
+            }
+        ]
+
+        
+
+
+        btnAdd.addEventListener("click", (evt)=> {
+            const n1 = Number(document.querySelector("#val1").value)
+            const n2 = Number(document.querySelector("#val2").value)
+            op[0](n1, n2)
+        })
+        
+        btnSub.addEventListener("click", (evt)=> {
+            const n1 = Number(document.querySelector("#val1").value)
+            const n2 = Number(document.querySelector("#val2").value)
+            op[1](n1, n2)     
+        })
+
+        btnMult.addEventListener("click", (evt)=> {
+            const n1 = Number(document.querySelector("#val1").value)
+            const n2 = Number(document.querySelector("#val2").value)
+            op[2](n1, n2)    
+        })
+        
+        btnDiv.addEventListener("click", (evt)=> {
+            const n1 = Number(document.querySelector("#val1").value)
+            const n2 = Number(document.querySelector("#val2").value)
+            op[3](n1, n2)    
+        })
+    </script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-const valores = [1,2]
+const valores = [1,2,3,4,5]
 
 const op = [
     (val)=> {
@@ -23,4 +23,4 @@ const op = [
     }
 ]
 
-console.log(op[0](valores))
+console.log(op[2](valores))
