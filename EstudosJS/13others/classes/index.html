@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="criarCarro" class="criarCarro">
+        <div class="campoForm">
+            <label for="inome">Nome:</label>
+            <input type="text" name="inome" id="inome" placeholder="Corola Manual" required>
+        </div>
+        <div class="campoForm">
+            <label for="iporta">Portas</label>
+            <input type="number" name="iporta" id="iporta" value="0">
+        </div>
+        <div class="campoForm">
+            <label for="iblind">Blindagem </label>
+            <input type="number" name="iblind" id="iblind" disabled value="0">
+        </div>
+        <div class="campoForm">
+            <label for="imun">Munição </label>
+            <input type="number" name="imun" id="imun" disabled value="0">
+        </div>
+        <div class="campoForm">
+            <label for="itipo">Tipo</label>
+            <div class="radio">
+                <input type="radio" name="itipo" id="imilitar" value="m">Militar
+            </div>
+            <div class="radio">
+                <input type="radio" name="itipo" id="inormal" value="n" checked>Normal
+            </div>
+        </div>
+        <div class="campoForm">
+            <button id="btn_add">Adicionar</button>
+        </div>
+    </div>
+    <div id="carros" class="carros">
+
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
