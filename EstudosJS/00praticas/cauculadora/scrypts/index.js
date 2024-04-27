@@ -1,25 +1,40 @@
 const teclas = [...document.querySelectorAll(".tecla")]
 let display = document.querySelector('#display')
 
-document.querySelector('body').onkeyup = (evt)=>{
-    teclas.map((el)=>{
-        if (evt.key === el.innerHTML || isNaN(Number(evt.key))) {
-            if (display.innerHTML !== '0.' && el.innerHTML !== '.' && Number(display.innerHTML) === 0) {
-                display.innerHTML = ''
-            }
-            display.innerHTML += el.innerHTML  
-        }
-    })
-}
-
 let n1 = 0 
 let n2 = 0 
 let n3 = 0 
 let op
+let t
+
+document.querySelector('body').onkeyup = (evt)=>{
+    teclas.map((el)=>{
+        if (evt.key === el.innerHTML) {
+            t = evt.key
+            console.log(`Tecla ${t} apertada`)
+        }
+    })
+    if (!isNaN(t)) {
+        if (display.innerHTML !== '0.' && t !== '.' && Number(display.innerHTML) === 0) {
+            display.innerHTML = ''
+        }
+        display.innerHTML += t
+    }
+    t = undefined
+}
+
+const clickDown = (btn)=>{
+    btn.setAttribute('style', 'box-shadow: 2px 2px 3px #0000005d inset;')
+    setTimeout(() => {
+        btn.setAttribute('style', 'box-shadow: none;')
+    }, 500);
+    console.log(`Button ${btn.innerHTML} pressed`)
+}
 
 teclas.map((el)=>{
     el.addEventListener('click',(evt)=>{
-        if (!isNaN(el.innerHTML) || el.innerHTML == '.') {
+        clickDown(el)
+        if (!isNaN(el.innerHTML) || el.innerHTML == '.'){
             if (display.innerHTML !== '0.' && el.innerHTML !== '.' && Number(display.innerHTML) === 0) {
                 display.innerHTML = ''
             }
@@ -30,27 +45,27 @@ teclas.map((el)=>{
             n3 = eval(`${n1}${op}${n2}`)
             display.innerHTML = n3
             console.log(n1,op,n2,n3)
-        } else if (el.innerHTML === '+') {
+        } else if (el.innerHTML === '+'){
             n1 = Number(display.innerHTML)
             op = "+"
             display.innerHTML = 0
             console.log(n1, op)
-        } else if(el.innerHTML === '-'){
+        } else if (el.innerHTML === '-'){
             n1 = Number(display.innerHTML)
             op = "-"
             display.innerHTML = 0
             console.log(n1, op)
-        } else if(el.innerHTML === 'X'){
+        } else if (el.innerHTML === 'X'){
             n1 = Number(display.innerHTML)
             op = "*"
             display.innerHTML = 0
             console.log(n1, op)
-        } else if(el.innerHTML === '÷'){
+        } else if (el.innerHTML === '÷'){
             n1 = Number(display.innerHTML)
             op = "/"
             display.innerHTML = 0
             console.log(n1, op)
-        } else if (el.innerHTML === 'C') {
+        } else if (el.innerHTML === 'C'){
             display.innerHTML = 0
             n1 = 0
             n2 = 0
