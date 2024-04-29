@@ -18,10 +18,23 @@ body{
     position: relative;
 }
 .calc{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
     position: absolute;
-    top: 50%;
+    top: 0px;
+    left: -250px;
+}
+.calc_exibir{
+    left: 0px !important;
+}
+.calc_principal{
+    /* 
+    position: absolute;
     left: 50%;
-    transform: translate(-50%, 50%);
+    top: 50%;
+    transform: translate(-50%, 25%); */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -74,7 +87,7 @@ body{
     background-color: #7289da !important;
 }
 #tc{
-    width: 210px;
+    width: 160px;
 }
 
 /* Display */
@@ -96,4 +109,17 @@ body{
     font-family: 'digital-display', monospace;
     font-size: 3em;
     text-align: end;
+}
+.disp{
+     color: #868686;
+}
+.calc_aba{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 50px;
+    background-color: #1e2124;
+    border-radius: 0px 7px 7px 0px;
+    color: #fff;
 }

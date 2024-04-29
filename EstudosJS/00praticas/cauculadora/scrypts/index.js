@@ -1,4 +1,6 @@
 const teclas = [...document.querySelectorAll(".tecla")]
+const calc = document.querySelector('#calc')
+const calc_aba = document.querySelector('#calc_aba')
 let display = document.querySelector('#display')
 
 let n1 = 0 
@@ -70,6 +72,28 @@ teclas.map((el)=>{
             n1 = 0
             n2 = 0
             n3 = 0
+        } else if (el.innerHTML === 'copy') {
+            navigator.clipboard.writeText(display.innerHTML)
+            alert("copiado para a area de transferencia")
+        }
+        if (display.innerHTML !== '0') {
+            display.classList.remove('disp')
         }
     })
 })
+
+calc_aba.addEventListener('click', (evt)=>{
+    calc.setAttribute('style', 'transition: .2s;')
+    calc.classList.toggle('calc_exibir')
+    if (!calc.classList.contains('calc_exibir')) {
+        calc_aba.innerHTML = '❱'
+    } else {
+        calc_aba.innerHTML = '❰'
+    }
+})
+
+setInterval(() => {
+    if (display.innerHTML === '0') {
+        display.classList.toggle('disp')
+    }
+}, 1500);
