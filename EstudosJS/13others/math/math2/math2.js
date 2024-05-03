@@ -7,10 +7,10 @@ window.addEventListener('mousemove', (evt)=>{
     x = evt.clientX
     y = evt.clientY
 
-    const rotação
+    const rot = Math.atan2(y,x)*180/Math.PI
 
     olhos.map((el)=>{
-        el.style.transform='rotate('+90+'deg)'
+        el.style.transform='rotate('+rot+'deg)'
     })
 })
 
