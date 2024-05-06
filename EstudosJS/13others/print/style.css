@@ -1,0 +1,25 @@
+*{
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+table{
+    width: 300px;
+    font: 17px Calibri;
+}
+table, td,th{
+    border: 1px solid black;
+    padding: 5px;
+    border-collapse: collapse;
+    text-align: center;
+}
+button{
+    background-color: #eee;
+    padding: 10px 50px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover{
+    outline: 3px solid red;
+}
