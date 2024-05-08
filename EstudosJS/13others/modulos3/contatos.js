@@ -1,0 +1,26 @@
+import { contatos } from "./bancoContatos.js";
+
+let contato = {
+    getTodosContatos:function(){
+        return contatos
+    },
+    getContato:function(i){
+        return contatos[i]
+    },
+    addContato:function(novoContato, destinoDOM) {
+        const div = document.createElement('div')
+        div.setAttribute('class', 'contato')
+        const p_nome = document.createElement('p')
+        p_nome.innerHTML= novoContato.nome
+        const p_tel = document.createElement('p')
+        p_tel.innerHTML= novoContato.telefone
+        const p_email = document.createElement('p')
+        p_email.innerHTML= novoContato.email
+        div.appendChild(p_nome)
+        div.appendChild(p_tel)
+        div.appendChild(p_email)
+        destinoDOM.appendChild(div)
+    }
+}
+
+export default contato
