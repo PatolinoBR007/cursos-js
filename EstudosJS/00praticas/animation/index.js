@@ -42,7 +42,7 @@ btn_parar.addEventListener('click',(evt)=>{
 window.onload=init()
 window.addEventListener('resize',()=> palco=tela.offsetWidth)
 window.addEventListener('keydown',(evt)=>{
-    console.log(evt.code);
+    console.log(evt.code  );
     if (evt.code === 'ArrowUp' || evt.key === 'w') {
         carro.style.top = parseInt(carro.style.top)-10+'px'
     }
