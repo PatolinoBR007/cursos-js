@@ -4,7 +4,7 @@ const p_nivel = document.querySelector('#p_nivel')
 const p_press = document.querySelector('#p_press')
 
 const obterDados = ()=>{
-    const endpoint = 'https://e7f09299-4547-4c96-91fd-f1a6406946c7-00-2h962yd1dzv3i.picard.replit.dev/'
+    const endpoint = 'http://127.0.0.1:1880/patolinobr/'
     fetch(endpoint)
     .then(res => res.json())
     .then(dados=>{
@@ -15,7 +15,7 @@ const obterDados = ()=>{
     })
 }
 
-// let intervalo = setInterval(() => obterDados(), 5000);
+// let intervalo = setInterval(() => obterDados(), 3000);
 
 let dados = {
     nome:'pato',
@@ -29,7 +29,7 @@ let cabecalho = {
 }
 
 const gravarDados = ()=>{
-    const endpoint = 'https://e7f09299-4547-4c96-91fd-f1a6406946c7-00-2h962yd1dzv3i.picard.replit.dev/'
+    const endpoint = 'http://127.0.0.1:1880/gravar/'
     fetch(endpoint, cabecalho)
     .then(res=>res.json())
     .then(ret=>{
