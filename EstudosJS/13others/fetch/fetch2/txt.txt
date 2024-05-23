@@ -1,0 +1,5 @@
+{
+    "nome":"PatolinoBR",
+    "idade":21,
+    "curso":"JavaScrypt"
+}

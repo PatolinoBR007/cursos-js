@@ -1,0 +1,9 @@
+#div_grafico{
+    border: 1px solid black;
+    width: 400px;
+    height: 400px;
+}
+#grafico{
+    width: 100%;
+    height: 100%;
+}
