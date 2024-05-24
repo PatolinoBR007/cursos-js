@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronometro</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            border: 0;
+            box-sizing: border-box;
+        }
+        div{
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 200px;
+            height: 50px;
+            border-radius: 5px;
+            border: 5px solid #888;
+            background-color: #333;
+        }
+        p{
+            font-size: 2em;
+            color: rgb(0, 179, 0);
+            font-family: 'Courier New', Courier, monospace;
+        }
+        button{
+            padding: 5px;
+            margin: 0px 5px;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p id="timer">00:00:00</p><br>
+    </div>
+    <div id="controles">
+        <button id="btn_iniciar" class="btn">iniciar</button>
+        <button id="btn_parar" class="btn">parar</button>
+        <button id="btn_zerar" class="btn">zerar</button>
+    </div>
+    <script src="scrypt.js"></script>
+</body>
+</html>
