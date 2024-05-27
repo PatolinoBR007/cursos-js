@@ -1,3 +1,5 @@
+import { Cxmsg } from "../../13others/topo/cxmsg.js"
+
 const palco = document.getElementById('palco')
 const num_objetos = document.getElementById('num_objetos')
 const txt_qtde = document.getElementById('txt_qtde')
@@ -91,5 +93,6 @@ btn_remover.addEventListener("click", (evt)=> {
     bolas.map((b)=> {
         b.remover()
     })
+    Cxmsg.mostrar('Sucesso','Todas as bolinhas foram deletadas da existencia')
 })
 

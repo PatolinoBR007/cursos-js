@@ -1,14 +1,15 @@
 class Cxmsg{
-    titulo = null
-    texto=null
-    cor=null
-    destino=null
-    divmsg=null
-    constructor(config){
+    static cor= '#888'
+    static destino=null
+    static divmsg=null
+    static tipo=null
+    static comando_sn=null
+
+    static mostrar=(config, titulo, texto)=>{
+        this.cor=config.cor
+        this.tipo=config.tipo
+        this.comando_sn=config.comando_sn
         this.destino=document.body
-        this.cor= config.cor
-    }
-    mostrar=(titulo, texto)=>{
         this.titulo = titulo
         this.texto= texto
 
@@ -78,22 +79,41 @@ class Cxmsg{
         rodapeCxMsg.setAttribute('style', estilo_rodapeCxMsg)
         areaCxMsg.appendChild(rodapeCxMsg)
         
-        const btn_ok = document.createElement('button')
-        const estilo_btn_ok =
+        const estilo_btn =
             `background-color: ${this.cor};`+
             "color: #fff;"+
             "padding: 10px 50px;"+
             "border-radius: 5px;"+
             "cursor: pointer;"+
             "text-transform: uppercase;"
-        btn_ok.setAttribute("style", estilo_btn_ok)    
-        btn_ok.innerHTML='OK'
-        btn_ok.addEventListener('click',(evt)=>{
-            this.ocultar()
-        })
-        rodapeCxMsg.appendChild(btn_ok)
+        if(this.tipo=='ok'){
+            const btn_ok = document.createElement('button')
+            btn_ok.setAttribute("style", estilo_btn)    
+            btn_ok.innerHTML='OK'
+            btn_ok.addEventListener('click',(evt)=>{
+                this.ocultar()
+            })
+            rodapeCxMsg.appendChild(btn_ok)
+        } else if(this.tipo=='sn'){
+            const btn_s = document.createElement('button')
+            btn_s.setAttribute("style", estilo_btn)    
+            btn_s.innerHTML='Sim'
+            btn_s.addEventListener('click',(evt)=>{
+                this.ocultar()
+            })
+            rodapeCxMsg.appendChild(btn_s)
+            
+            const btn_n = document.createElement('button')
+            btn_n.setAttribute("style", estilo_btn)    
+            btn_n.innerHTML='não'
+            btn_n.addEventListener('click',(evt)=>{
+                this.ocultar()
+            })
+            rodapeCxMsg.appendChild(btn_n)
+        }
     }
-    ocultar=()=>{
+    static ocultar=()=>{
         this.divmsg.remove()
     }
 }
+export {Cxmsg}

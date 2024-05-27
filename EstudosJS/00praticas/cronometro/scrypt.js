@@ -1,3 +1,6 @@
+import { Cxmsg } from "../../13others/topo/cxmsg.js"
+Cxmsg.config({cor: '#03f'})
+
 const timer = document.getElementById('timer')
 const btn = [...document.querySelectorAll('.btn')]
 
@@ -32,7 +35,7 @@ btn.map((el)=>{
             clearInterval(intervalo)
         } else if (el.id === 'btn_zerar'){
             tmpini = Date.now()
-        
+            Cxmsg.mostrar('Zerado','o cronometro foi rebobinado')
         }
     })
 })

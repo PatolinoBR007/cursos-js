@@ -11,7 +11,7 @@
             border: 0;
             box-sizing: border-box;
         }
-        div{
+        div.tempo{
             margin: auto;
             display: flex;
             justify-content: center;
@@ -35,14 +35,14 @@
     </style>
 </head>
 <body>
-    <div>
+    <div class="tempo">
         <p id="timer">00:00:00</p><br>
     </div>
-    <div id="controles">
+    <div id="controles" class="tempo">
         <button id="btn_iniciar" class="btn">iniciar</button>
         <button id="btn_parar" class="btn">parar</button>
         <button id="btn_zerar" class="btn">zerar</button>
     </div>
-    <script src="scrypt.js"></script>
+    <script src="scrypt.js" type="module"></script>
 </body>
 </html>
