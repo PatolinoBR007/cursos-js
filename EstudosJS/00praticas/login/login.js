@@ -7,20 +7,20 @@ class Login{
     static endpoint='https://9e15c086-d340-486a-b4c8-d66fac700f3c-00-v65qbwsh9e4j.kirk.replit.dev/'
     static config={
         cor:"#00008d",
-        img:"../../OIP.jfif"
+        img:"../../../zoe.jpg"
     }
 
-    static login=(mat, pas, config=null)=>{
+    static login=(config=null)=>{
         if (config!=null) {
             this.config=config
         }
-        this.endpoint+=`?matricula=${mat}&senha=${pas}`
+        // this.endpoint+=`?matricula=${mat}&senha=${pas}`
         this.estiloCss=
             ".fundoLogin{display: flex;justify-content: center;align-items: center;width: 100%;height: 100vh;position: absolute;left: 0px;top: 0px;background-color: #000000bf}"+
             ".baseLogin{display: flex;justify-content: center;align-items: stretch;width: 90%;}"+
             ".elementosLogin{display: flex;justify-content: center;align-items: flex-start;flex-direction: column;width: 50%;background-color: #eee;padding: 10px;border-radius: 7px 0px 0px 7px;box-sizing: inherit}"+
-            ".logoLogin{display: flex;justify-content: center;align-items: center;width: 50%;background-color: #bbb;border-radius: 0px 7px 7px 0px;box-sizing: inherit}"+
-            ".logoLogin img{width: 1000%;padding: 10px;box-sizing: inherit}"+
+            ".logoLogin{display: flex;justify-content: center;align-items: center;width: 50%;background-color: #bbb;border-radius: 0px 7px 7px 0px;box-sizing: inherit;overflow: hidden;}"+
+            ".logoLogin img{width: 100%;box-sizing: inherit;}"+
             ".campoLogin{display: flex;justify-content: flex-start;align-items: flex-start;flex-direction: column;box-sizing: inherit}"+
             ".campoLogin label{font-size: 1.2em;}"+
             ".campoLogin input{font-size: 18px;padding: 5px;background-color: #fff;border-radius: 5px;margin-bottom: 10px;width: 100%}"+
@@ -85,11 +85,19 @@ class Login{
         const btn_login = document.createElement('button')
         btn_login.setAttribute('id','btn_login')
         btn_login.innerHTML = 'Login'
+        btn_login.addEventListener('click',(evt)=>{
+            if (this.verificaLogin()){
+                this.fechar()
+            } else {
+                
+            }
+        })
         bottoesLogin.appendChild(btn_login)
         
         const btn_cancelar = document.createElement('button')
         btn_cancelar.setAttribute('id','btn_login')
         btn_cancelar.innerHTML = 'Cancelar'
+        btn_cancelar.addEventListener('click',this.fechar)
         bottoesLogin.appendChild(btn_cancelar)
 
         const logoLogin = document.createElement('div')
@@ -98,12 +106,9 @@ class Login{
         baseLogin.appendChild(logoLogin)
         
         const img = document.createElement('img')
-        img.setAttribute('src','../../OIP.jfif')
+        img.setAttribute('src',this.config.img)
         img.setAttribute('alt','logo')
         logoLogin.appendChild(img)
-
-        
-
 
         // fetch(this.endpoint).then(res=>res.json()).then(res=>{
         //     if (res) {
@@ -116,6 +121,23 @@ class Login{
         //         console.log('Usuario nao encontrado');
         //     }
         // })
+    }
+
+    static verificaLogin=()=>{
+        const mat=document.querySelector('#iuser').value
+        const pas=document.querySelector('ipass').value
+        if (mat==='123' && pas==='321') {
+            return true;
+        } else {
+            return false
+        }
+    }
+
+    static fechar =()=>{
+        const fundoLogin = document.querySelector('#fundoLogin')
+        const estilo_login = document.querySelector('#estilo_login')
+        fundoLogin.remove()
+        estilo_login.remove()
     }
 }
 export {Login}
