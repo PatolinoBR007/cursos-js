@@ -4,19 +4,22 @@ class Login{
     static nomelogado=null
     static acessologado=null
     static estiloCss=null
+    static callback_ok=null
+    static callback_not_ok=null
     static endpoint='https://9e15c086-d340-486a-b4c8-d66fac700f3c-00-v65qbwsh9e4j.kirk.replit.dev/'
     static config={
         cor:"#00008d",
         img:"../../../zoe.jpg"
     }
 
-    static login=(config=null)=>{
+    static login=(callback_ok,callback_not_ok,config=null)=>{
         if (config!=null) {
             this.config=config
         }
-        // this.endpoint+=`?matricula=${mat}&senha=${pas}`
+        this.callback_ok=()=>{callback_ok()}
+        this.callback_not_ok=()=>{callback_not_ok()}
         this.estiloCss=
-            ".fundoLogin{display: flex;justify-content: center;align-items: center;width: 100%;height: 100vh;position: absolute;left: 0px;top: 0px;background-color: #000000bf}"+
+        ".fundoLogin{display: flex;justify-content: center;align-items: center;width: 100%;height: 100vh;position: absolute;left: 0px;top: 0px;background-color: #000000bf}"+
             ".baseLogin{display: flex;justify-content: center;align-items: stretch;width: 90%;}"+
             ".elementosLogin{display: flex;justify-content: center;align-items: flex-start;flex-direction: column;width: 50%;background-color: #eee;padding: 10px;border-radius: 7px 0px 0px 7px;box-sizing: inherit}"+
             ".logoLogin{display: flex;justify-content: center;align-items: center;width: 50%;background-color: #bbb;border-radius: 0px 7px 7px 0px;box-sizing: inherit;overflow: hidden;}"+
@@ -86,11 +89,7 @@ class Login{
         btn_login.setAttribute('id','btn_login')
         btn_login.innerHTML = 'Login'
         btn_login.addEventListener('click',(evt)=>{
-            if (this.verificaLogin()){
-                this.fechar()
-            } else {
-                
-            }
+            this.verificaLogin()
         })
         bottoesLogin.appendChild(btn_login)
         
@@ -109,28 +108,31 @@ class Login{
         img.setAttribute('src',this.config.img)
         img.setAttribute('alt','logo')
         logoLogin.appendChild(img)
-
-        // fetch(this.endpoint).then(res=>res.json()).then(res=>{
-        //     if (res) {
-        //         this.logado=true
-        //         this.matlogado=mat
-        //         this.nomelogado=res.nome
-        //         this.acessologado=res.acesso
-        //         console.log(res);
-        //     } else {
-        //         console.log('Usuario nao encontrado');
-        //     }
-        // })
     }
-
+    
     static verificaLogin=()=>{
         const mat=document.querySelector('#iuser').value
-        const pas=document.querySelector('ipass').value
-        if (mat==='123' && pas==='321') {
-            return true;
-        } else {
-            return false
-        }
+        const pas=document.querySelector('#ipass').value
+        
+        const endpoint = `https://9e15c086-d340-486a-b4c8-d66fac700f3c-00-v65qbwsh9e4j.kirk.replit.dev/?matricula=${mat}&senha=${pas}`
+
+        fetch(endpoint).then(res=>res.json()).then(res=>{
+            if (res) {
+                this.logado=true
+                this.matlogado=mat
+                this.nomelogado=res.nome
+                this.acessologado=res.acesso
+                console.log(res);
+                this.callback_ok()
+                this.fechar()
+            } else {
+                this.logado=false
+                this.matlogado=null
+                this.nomelogado=null
+                this.acessologado=null
+                this.callback_not_ok()
+            }
+        })
     }
 
     static fechar =()=>{
