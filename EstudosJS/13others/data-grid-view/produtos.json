@@ -1,31 +1,31 @@
 [
     {
-        "id":"01",
+        "id":"1",
         "produto":"Processador",
         "marca":"Intel",
         "modelo":"i7",
         "preco":"9,99"
     },
     {
-        "id":"02",
+        "id":"2",
         "produto":"Mouse",
         "marca":"Logitech",
         "modelo":"M90"
     },
     {
-        "id":"03",
+        "id":"3",
         "produto":"Monitor",
         "marca":"Samsung",
         "modelo":"Syncmaster"
     },
     {
-        "id":"04",
+        "id":"4",
         "produto":"Impressora",
         "marca":"HP",
         "modelo":"P1005"
     },
     {
-        "id":"05",
+        "id":"5",
         "produto":"Drone",
         "marca":"DJI",
         "modelo":"mini 3 pro"

@@ -5,20 +5,21 @@
     box-sizing: border-box;
 }
 .dgv{
+    margin: 10px;
     display: flex;
     justify-content: flex-start;
-    align-self: flex-start;
+    align-items: flex-start;
     flex-direction: column;
 }
 .dgvtitulos{
     display: flex;
     justify-content: flex-start;
-    align-self: flex-start;
+    align-items: flex-start;
     flex-direction: row;
     background-color: #138;
     color: #fff;
-    border-radius: 5px 5px 0px 0px;
-    width: 600px;
+    border-radius: 4px 30px 0px 0px;
+   
 }
 .dgvtitulos div, .dgvlinha div{
     padding: 5px;
@@ -46,6 +47,11 @@
 .dgvlinha:nth-child(even){
     background-color: #ccc;
 }
+.coluna{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
 .c1{
     width: 50px;
 }
@@ -60,4 +66,9 @@
 }
 .c5{
     width: 100px;
+    justify-content: space-around !important;
+}
+.dgvIcone{
+    width: 20px;
+    
 }
