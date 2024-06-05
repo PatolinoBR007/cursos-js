@@ -1,5 +1,5 @@
 const configdgv ={
-    endpoint: "produtos.json",
+    endpoint: "http://127.0.0.1:1880/produtos/",
     idDestino: "dgvdados"
 }
 
@@ -7,8 +7,9 @@ const dgv =(configdgv)=>{
     const dgvDados =document.getElementById(configdgv.idDestino)
     dgvDados.innerHTML=''
     fetch(configdgv.endpoint).then(res=>res.json()).then(res=>{
+        console.log(res);
         res.map(el=>{ 
-            const dadosArr = [el.id, el.produto, el.marca, el.modelo, ""]
+            const dadosArr = [el.n_id_produto, el.s_nome_produto, el.s_marca_produto, el.s_modelo_produto, ""]
 
             const divlinha = document.createElement('div')
             divlinha.setAttribute('class','dgvlinha')
@@ -26,15 +27,11 @@ const dgv =(configdgv)=>{
                     imgDelete.setAttribute('src','trash.svg')
                     imgDelete.addEventListener('click',(evt)=>{
                         const id = evt.target.parentNode.parentNode.firstChild.innerHTML
-                        const endpoint = 'produtos.json'
-                        fetch(endpoint).then(res=> res.json()).then(res=>{
-                            res.map((el, i)=>{
-                                if (el.id == id) {
-                                    res.splice(id-1,1)
-                                    console.log(res);
-                                }
-                            })
-                        })
+                        const linha = evt.target.parentNode.parentNode
+                        console.log(linha);
+                        const endpoint = `http://127.0.0.1:1880/removeproduto/${id}`
+                        fetch(endpoint).then(res=> res.json())
+                        linha.remove()
                     })
                     divDados.appendChild(imgDelete)
 
