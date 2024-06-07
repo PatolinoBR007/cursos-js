@@ -18,6 +18,55 @@
         <div id="dgvdados" class="dgvdados">
         </div>
     </div>
+
+    <div id="winView" class="winView ocultar">
+        <div id="view" class="view">
+            <div class="campo">
+                <label for="f_id">ID</label>
+                <input type="text" name="f_id" id="f_id" readonly>
+            </div>
+            <div class="campo">
+                <label for="f_prod">Produto</label>
+                <input type="text" name="f_prod" id="f_prod" readonly>
+            </div>
+            <div class="campo">
+                <label for="f_mar">Marca</label>
+                <input type="text" name="f_mar" id="f_mar" readonly>
+            </div>
+            <div class="campo">
+                <label for="f_mod">Modelo</label>
+                <input type="text" name="f_mod" id="f_mod" readonly>
+            </div>
+            <div id="rodape" class="campo rodape">
+                <button id="btn_fechar" class="btn_fechar">ok</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="winEdit" class="winView ocultar">
+        <div id="view" class="view">
+            <div class="campo">
+                <label for="f_id_editar">ID</label>
+                <input type="text" name="f_id_editar" id="f_id_editar" readonly>
+            </div>
+            <div class="campo">
+                <label for="f_prod_editar">Produto</label>
+                <input type="text" name="f_prod_editar" id="f_prod_editar">
+            </div>
+            <div class="campo">
+                <label for="f_mar_editar">Marca</label>
+                <input type="text" name="f_mar_editar" id="f_mar_editar">
+            </div>
+            <div class="campo">
+                <label for="f_mod_editar">Modelo</label>
+                <input type="text" name="f_mod_editar" id="f_mod_editar">
+            </div>
+            <div id="rodape" class="campo rodape">
+                <button id="btn_save" class="btn_save">Salvar</button>
+                <button id="btn_cancelar" class="btn_cancelar">Cancelar</button>
+            </div>
+        </div>
+    </div>
     <script type="module" src="gridview.js"></script>
 </body>
 </html>
